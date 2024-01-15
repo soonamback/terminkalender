@@ -14,7 +14,7 @@ export const calendarWeekData = [
       shortName: "Di",
       fullName: "Dienstag",
       events: [],
-      active: false,
+      active: true,
     },
     {
       id: 3,
