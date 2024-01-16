@@ -4,7 +4,14 @@
                 <strong>{{ day.fullName }}</strong>
               </div>
               <div class="card-body">
-                <CalendarEvent v-for="event in day.events" :key="event.title" :event="event" />
+                <CalendarEvent v-for="event in day.events" :key="event.title" :event="event">
+                <!-- <template v-slot:eventPriority>
+                    Priorität
+                </template> -->
+                <template v-slot= "{ event }"><i>{{ event.title }}</i></template>
+                <template v-slot:eventPriority="slotProps"><h5>{{ slotProps.priorityDisplayName }}</h5>
+                </template>
+                </CalendarEvent>
               </div>
             </div>
 </template>
@@ -31,7 +38,7 @@ export default {
       },
       validator: function(value) { 
         if(Object.keys(value).includes('id')) {
-          return true;
+        return true;
         }
       }
     },

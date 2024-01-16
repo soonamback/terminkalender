@@ -1,9 +1,9 @@
 <template>
- <div id="calender-week">
-          <div class="card-group">
+    <div id="calender-week">
+        <div class="card-group">
             <CalendarDay v-for="day in calendarWeekData" :key="day.id" :day="day" />
         </div>
-        </div>
+    </div>
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
     components: {
         CalendarDay,
     },
-    data() { 
+    data() {
         return {
             calendarWeekData: Store.state.calendarWeekData
         }
@@ -22,6 +22,4 @@ export default {
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
