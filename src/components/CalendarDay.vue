@@ -1,6 +1,6 @@
 <template>
   <div class="card border-start" :class="cardClasses">
-    <div class="card-header text-center" :class="cardHeaderClasses" role="button">
+    <div class="card-header text-center" :class="cardHeaderClasses" role="button" @click="setActiveDay">
       <strong>{{ day.fullName }}</strong>
     </div>
     <div class="card-body">
@@ -51,6 +51,11 @@ export default {
     cardHeaderClasses() {
       return this.day.id === Store.getters.activeDay().id
         ? ["bg-primary", "text-white"] : null
+    },
+  },
+  methods: {
+    setActiveDay() {
+      Store.mutations.setActiveDay(this.day.id);
     }
   }
 }

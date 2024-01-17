@@ -12,27 +12,44 @@
       <div class="col-2 offset-2">
         <div class="float-end">
           <!-- Mit dem Button blenden wir die Calendar-Settings-Component ein bzw. aus. -->
-          <button class="btn btn-lg mb-2">
+          <button class="btn btn-lg mb-2" :class="buttonSettingsClasses" @click="toggleDisplaySettings()">
             <i class="fas fa-cogs"></i>
           </button>
         </div>
-        <CalendarSettings />
+        <CalendarSettings v-if="displaySettings" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { defineAsyncComponent } from "vue"
 import CalendarWeek from "./components/CalendarWeek"
 import CalendarEntry from "./components/CalendarEntry.vue";
-import CalendarSettings from "./components/CalendarSettings.vue";
+// import CalendarSettings from "./components/CalendarSettings.vue";
 export default {
   name: "App",
   components: {
     CalendarWeek,
     CalendarEntry,
-    CalendarSettings
-
+    CalendarSettings: defineAsyncComponent(() => {
+      import('./components/CalendarSettings.vue')
+    })
+  },
+  data() {
+    return {
+      displaySettings: false 
+    }
+  },
+  computed: {
+    buttonSettingsClasses() {
+      return this.displaySettings ? ["btn-success"] : ["btn-outline-success"]
+    },
+  },
+  methods: {
+    toggleDisplaySettings() {
+      this.displaySettings = !this.displaySettings;
+    }
   }
 };
 </script>
