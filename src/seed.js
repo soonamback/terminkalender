@@ -4,8 +4,8 @@ export const calendarWeekData = [
     shortName: "Mo",
     fullName: "Montag",
     events: [
-      { title: "Vue.js lernen", edit: false, color: "success", priority: 0 },
-      { title: "Üben, üben, üben", edit: false, color: "info", priority: -1 },
+      { title: "Spazieren", edit: false, color: "success", priority: 0 },
+      { title: "Einkaufen", edit: false, color: "info", priority: -1 },
     ],
     active: false,
   },
@@ -29,7 +29,7 @@ export const calendarWeekData = [
     fullName: "Donnerstag",
     events: [
       {
-        title: "Grillen mit Freunden",
+        title: "Essgen gehen mit Freunden",
         edit: false,
         color: "warning",
         priority: 0,
